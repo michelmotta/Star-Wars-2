@@ -40,7 +40,7 @@ import { mapState } from "vuex";
 export default {
   	name: "Movies",
   	mounted() {
-    	this.$store.dispatch("loadMovies")
+    	this.$store.dispatch("loadMovies", 'https://swapi.co/api/films')
   	},
   	computed: {
     	...mapState(["movies"])

@@ -8,18 +8,18 @@ Vue.use(vuex, axios)
 export default new vuex.Store({
     state: {
         movies: [],
-        prevPage: null,
-        nextPage: null
+        prevPageUrl: null,
+        nextPageUrl: null
     },
     actions: {
-        loadMovies({commit}) {
+        loadMovies({commit}, requestApiUrl) {
             axios
-                .get('https://swapi.co/api/films')
+                .get(requestApiUrl)
                 .then(response => {
                     let movies = response.data.results
-                    let prevPage = response.data.previous
-                    let nextPage = response.data.next
-                    commit('SET_MOVIES', {movies, prevPage, nextPage})
+                    let prevPageUrl = response.data.previous
+                    let nextPageUrl = response.data.next
+                    commit('SET_MOVIES', {movies, prevPageUrl, nextPageUrl})
                 })
                 .catch(error => {
                     console.log(error)
@@ -27,10 +27,10 @@ export default new vuex.Store({
         }
     },
     mutations: {
-        SET_MOVIES(state, {movies, prevPage, nextPage}) {
+        SET_MOVIES(state, {movies, prevPageUrl, nextPageUrl}) {
             state.movies = movies
-            state.prevPage = prevPage
-            state.nextPage = nextPage
+            state.prevPageUrl = prevPageUrl
+            state.nextPageUrl = nextPageUrl
         }
     }
 })
