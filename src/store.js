@@ -8,6 +8,7 @@ Vue.use(vuex, axios)
 export default new vuex.Store({
     state: {
         movies: [],
+        movie: {},
         prevPageUrl: null,
         nextPageUrl: null,
         loadingStatus: false
@@ -30,6 +31,17 @@ export default new vuex.Store({
         },
         orderMoviesBy({commit}, orderType) {
             commit('SET_MOVIES_ORDER_BY', orderType)
+        },
+        loadMovie({commit}, movieUrl) {
+            axios
+                .get(movieUrl)
+                .then(response => {
+                    let movie = response.data
+                    commit('SET_MOVIE', movie)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
         }
     },
     mutations: {
@@ -48,6 +60,9 @@ export default new vuex.Store({
             if(orderType == "date"){
                 state.movies.sort((a, b) => (a.release_date > b.release_date) ? 1 : -1)
             }
+        },
+        SET_MOVIE(state, movie) {
+            state.movie = movie
         }
     }
 })

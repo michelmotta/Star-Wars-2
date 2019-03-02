@@ -26,19 +26,24 @@
                         <p class="list-item-text-synopsis">{{movie.opening_crawl}}</p>
                     </div>
                     <div class="list-item-button">
-                        <button type="button" class="btn btn-dark btn-black" data-toggle="modal" data-target=".bd-example-modal-lg">Details</button>
+                        <button type="button" class="btn btn-dark btn-black" data-toggle="modal" data-target=".bd-example-modal-lg" @click.prevent="loadMovieByUrl(movie.url)">Details</button>
                     </div>
                 </div>
             </div>
         </div>
+        <Modal></Modal>
     </div>    
 </template>
 
 <script>
 import { mapState } from "vuex";
+import Modal from './Modal'
 
 export default {
-  	name: "Movies",
+    name: "Movies",
+    components: {
+        Modal
+    },
   	mounted() {
     	this.$store.dispatch("loadMovies", 'https://swapi.co/api/films')
   	},
@@ -55,6 +60,11 @@ export default {
             return m + "/" + d + "/" + y
         },
     },
+    methods: {
+        loadMovieByUrl(movieUrl) {
+            this.$store.dispatch("loadMovie", movieUrl)
+        }
+    }
 };
 </script>
 
