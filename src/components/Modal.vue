@@ -13,7 +13,7 @@
                         <div class="col-md-12">
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
-                                    <a @click="requestMovieExtrasInfo('characters')" class="nav-link active" id="characters-tab" data-toggle="tab" href="#characters" role="tab" aria-controls="characters" aria-selected="true">Personagens</a>
+                                    <a @click.prevent="setCurrentMovieTab('characters')" class="nav-link active" id="characters-tab" data-toggle="tab" href="#characters" role="tab" aria-controls="characters" aria-selected="true">Personagens</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" id="planets-tab" data-toggle="tab" href="#planets" role="tab" aria-controls="planets" aria-selected="false">Planetas</a>
@@ -29,7 +29,7 @@
                                 </li>
                             </ul>
                             <div class="tab-content" id="myTabContent">
-                                <!--<ChildCharacters></ChildCharacters>-->
+                                <ChildCharacters></ChildCharacters>
                             </div>
                         </div>
                     </div>
@@ -52,7 +52,9 @@ export default {
     	...mapState(["movie"])
 	},
     methods: {
-       
+       setCurrentMovieTab(currentMovieTab) {
+           this.$store.dispatch("updateCurentMovieTab", currentMovieTab)
+       }
     }
 }
 </script>
