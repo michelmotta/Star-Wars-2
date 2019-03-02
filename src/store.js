@@ -37,7 +37,6 @@ export default new vuex.Store({
         }, 
         SET_LOADING(state, loadingStatus) {
             state.loadingStatus = loadingStatus
-            console.log(loadingStatus)
         }
     }
 })
