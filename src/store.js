@@ -27,6 +27,9 @@ export default new vuex.Store({
                 .catch(error => {
                     console.log(error)
                 })
+        },
+        orderMoviesBy({commit}, orderType) {
+            commit('SET_MOVIES_ORDER_BY', orderType)
         }
     },
     mutations: {
@@ -37,6 +40,14 @@ export default new vuex.Store({
         }, 
         SET_LOADING(state, loadingStatus) {
             state.loadingStatus = loadingStatus
+        },
+        SET_MOVIES_ORDER_BY(state, orderType) {
+            if(orderType == "name"){
+                state.movies.sort((a, b) => (a.title > b.title) ? 1 : -1)
+            }
+            if(orderType == "date"){
+                state.movies.sort((a, b) => (a.release_date > b.release_date) ? 1 : -1)
+            }
         }
     }
 })
