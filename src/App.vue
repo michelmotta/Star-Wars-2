@@ -1,14 +1,22 @@
 <template>
   <div id="app">
-    {{this.$store.state.teste}}
+    <h1 v-for="(movie, index) in movies" :key="index">{{ movie.title }}</h1>
   </div>
 </template>
 
 <script>
-
+import {mapState} from 'vuex'
 
 export default {
-  name: 'app'
+  name: 'app',
+  mounted() {
+    this.$store.dispatch('loadMovies')
+  },
+  computed: {
+    ...mapState([
+      'movies'
+    ])
+  },
 }
 </script>
 
