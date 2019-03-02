@@ -1,25 +1,26 @@
 <template>
-  <div id="app">
-    <h1 v-for="(movie, index) in movies" :key="index">{{ movie.title }}</h1>
-  </div>
+  	<div id="app">
+    	<div class="container-fluid">
+			<Header></Header>
+      		<h1 v-for="(movie, index) in movies" :key="index">{{ movie.title }}</h1>
+    	</div>
+  	</div>
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import { mapState } from "vuex";
+import Header from "./components/Header";
 
 export default {
-  name: 'app',
-  mounted() {
-    this.$store.dispatch('loadMovies')
-  },
-  computed: {
-    ...mapState([
-      'movies'
-    ])
-  },
-}
+  	name: "app",
+  	components: {
+    	Header
+  	},
+  	mounted() {
+    	this.$store.dispatch("loadMovies");
+  	},
+  	computed: {
+    	...mapState(["movies"])
+  	}
+};
 </script>
-
-<style>
-
-</style>
