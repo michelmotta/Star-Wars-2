@@ -1,4 +1,4 @@
-# Desafio Jera - Star Wars
+#  Star Wars 2
 
 ## Sobre o projeto
 
