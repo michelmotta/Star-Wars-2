@@ -9,6 +9,7 @@ export default new vuex.Store({
     state: {
         movies: [],
         movie: {},
+        currentMovieTab: null,
         prevPageUrl: null,
         nextPageUrl: null,
         loadingStatus: false
@@ -42,6 +43,9 @@ export default new vuex.Store({
                 .catch(error => {
                     console.log(error)
                 })
+        },
+        updateCurentMovieTab({commit}, currentMovieTab) {
+            commit('SET_CURRENT_MOVIE_TAB', currentMovieTab)
         }
     },
     mutations: {
@@ -63,6 +67,9 @@ export default new vuex.Store({
         },
         SET_MOVIE(state, movie) {
             state.movie = movie
+        },
+        SET_CURRENT_MOVIE_TAB(state, currentMovieTab) {
+            state.currentMovieTab = currentMovieTab
         }
     }
 })
