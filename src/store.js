@@ -7,7 +7,9 @@ Vue.use(vuex, axios)
 
 export default new vuex.Store({
     state: {
-        movies: []
+        movies: [],
+        prevPage: null,
+        nextPage: null
     },
     actions: {
         loadMovies({commit}) {
@@ -15,7 +17,9 @@ export default new vuex.Store({
                 .get('https://swapi.co/api/films')
                 .then(response => {
                     let movies = response.data.results
-                    commit('SET_MOVIES', movies)
+                    let prevPage = response.data.previous
+                    let nextPage = response.data.next
+                    commit('SET_MOVIES', {movies, prevPage, nextPage})
                 })
                 .catch(error => {
                     console.log(error)
@@ -23,8 +27,10 @@ export default new vuex.Store({
         }
     },
     mutations: {
-        SET_MOVIES(state, movies) {
-            state.movies= movies
+        SET_MOVIES(state, {movies, prevPage, nextPage}) {
+            state.movies = movies
+            state.prevPage = prevPage
+            state.nextPage = nextPage
         }
     }
 })

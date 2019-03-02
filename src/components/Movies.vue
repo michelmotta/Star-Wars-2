@@ -26,7 +26,7 @@
                         <p class="list-item-text-synopsis">{{movie.opening_crawl}}</p>
                     </div>
                     <div class="list-item-button">
-                        <button type="button" class="btn btn-dark btn-black" data-toggle="modal" data-target=".bd-example-modal-lg">Ver Detalhes</button>
+                        <button type="button" class="btn btn-dark btn-black" data-toggle="modal" data-target=".bd-example-modal-lg">Details</button>
                     </div>
                 </div>
             </div>
@@ -44,7 +44,17 @@ export default {
   	},
   	computed: {
     	...mapState(["movies"])
-  	}
+	},
+	filters: {
+        formateDate: function(str) {
+            var date = new Date(str)
+            let d  = date.getDate().toString().padStart(2, '0')
+            let m  = (date.getMonth()+1).toString().padStart(2, '0')
+            let y  = date.getFullYear()
+            
+            return m + "/" + d + "/" + y
+        },
+    },
 };
 </script>
 
