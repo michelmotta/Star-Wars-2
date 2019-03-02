@@ -28,11 +28,9 @@ export default {
     methods: {
         loadPrevPageUrl(prevPageUrl) {
             this.$store.dispatch("loadMovies", prevPageUrl)
-            console.log('1')
         },
         loadNextPageUrl(nextPageUrl) {
             this.$store.dispatch("loadMovies", nextPageUrl)
-            console.log('2')
         }
     }
 }
