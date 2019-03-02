@@ -1,6 +1,6 @@
 import vue from 'vue'
 import vuex from 'vuex'
-import axios from './axiosConfig'
+import axios from 'axios'
 import Vue from 'vue'
 
 Vue.use(vuex, axios)
@@ -12,7 +12,7 @@ export default new vuex.Store({
     actions: {
         loadMovies({commit}) {
             axios
-                .get('/films')
+                .get('https://swapi.co/api/films')
                 .then(response => {
                     let movies = response.data.results
                     commit('SET_MOVIES', movies)
