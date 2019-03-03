@@ -60,6 +60,11 @@ export default {
         ChildStarships,
         ChildVehicles
     },
+    mounted: function() {
+        $('.modal').on("hidden.bs.modal", function () {
+            $('.modal a:first').tab('show');
+        });
+    },
     computed: {
     	...mapState(["movie"])
 	},
