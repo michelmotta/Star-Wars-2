@@ -1,7 +1,7 @@
 <template>
     <div class="tab-pane fade show active" id="characters" role="tabpanel" aria-labelledby="characters-tab">
         <div class="star-wars-icon">
-            <img src="../../assets/Master-Joda-icon.png">
+            <img src="../../../public/img/Master-Joda-icon.png">
         </div>
         <Loading v-if="loadingMovieInfoStatus"></Loading>
         <div class="table-responsive">

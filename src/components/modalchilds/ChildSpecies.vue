@@ -1,7 +1,7 @@
 <template>
     <div class="tab-pane fade" id="species" role="tabpanel" aria-labelledby="species-tab">
         <div class="star-wars-icon">
-            <img src="../../assets/R2D2-icon.png">
+            <img src="../../../public/img/R2D2-icon.png">
         </div>
         <Loading v-if="loadingMovieInfoStatus"></Loading>
         <div class="table-responsive">

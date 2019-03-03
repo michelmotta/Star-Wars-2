@@ -2,7 +2,7 @@
     <div class="container">
         <div class="col-md-12">
             <div class="loading">
-                <img src="../assets/loading.gif">
+                <img src="../../public/img/loading.gif">
             </div>
         </div>
     </div>

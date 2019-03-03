@@ -4,7 +4,7 @@
             <div class="col-md-4 margin-top-30px" v-for="(movie, index) in movies.slice((i - 1) * 3, i * 3)" :key="index">
                 <div class="list-item">
                     <div class="list-item-movie-image">
-                        <img src="../assets/demo_star_wars.jpeg" class="img-fluid">
+                        <img src="../../public/img/demo_star_wars.jpeg" class="img-fluid">
                     </div>
                     <div class="list-item-text">
                         <span class="badge badge-secondary">Movie</span>

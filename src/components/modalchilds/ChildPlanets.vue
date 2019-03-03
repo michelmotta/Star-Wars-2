@@ -1,7 +1,7 @@
 <template>
     <div class="tab-pane fade" id="planets" role="tabpanel" aria-labelledby="planets-tab">
         <div class="star-wars-icon">
-            <img src="../../assets/Darth-Vader-icon.png">
+            <img src="../../../public/img/Darth-Vader-icon.png">
         </div>
         <Loading v-if="loadingMovieInfoStatus"></Loading>
         <div class="table-responsive">

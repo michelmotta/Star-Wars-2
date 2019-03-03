@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="logo">
-                    <img src="../assets/star_wars_logo.png">
+                    <img src="../../public/img/star_wars_logo.png">
                 </div>
             </div>
         </div>
