@@ -3,7 +3,8 @@
         <div class="star-wars-icon">
             <img src="../../assets/Master-Joda-icon.png">
         </div>
-        <table class="table table-bordered table-dark table-hover">
+        <Loading v-if="loadingMovieInfoStatus"></Loading>
+        <table class="table table-bordered table-dark table-hover" v-if="!loadingMovieInfoStatus">
             <thead>
                 <tr>
                     <th scope="col">Name</th>
@@ -31,14 +32,20 @@
 </template>
 
 <script>
+import Loading from '../Loading'
 import axios from 'axios'
 import { mapState } from "vuex";
 
 export default {
     name: "ChildCharacters",
+    components: {
+        Loading
+    },
     data() {
         return {
-            movieCharacters: []
+            movieCharacters: [],
+            loadingMovieInfoStatus: false,
+            counter: 0
         };
     },
     computed: {
@@ -54,6 +61,8 @@ export default {
     methods: {
         loadMovieCharacters(movieCharactersUrls) {
             if (movieCharactersUrls != null && movieCharactersUrls != "") {
+                this.loadingMovieInfoStatus = true
+                this.counter = 0;
                 this.movieCharacters = []
                 movieCharactersUrls.forEach(movieCharactersUrl => {
                     axios
@@ -69,11 +78,16 @@ export default {
                                 gender: response.data.gender
                             };
                             this.movieCharacters.push(movieCharacter);
+                            this.counter++;
                         })
                         .catch(error => {
                             console.log(error);
                         })
-                        .finally(() => {});
+                        .finally(() => {
+                            if(this.counter == movieCharactersUrls.length) {
+                                this.loadingMovieInfoStatus = false;
+                            }
+                        });
                     });
                 }
         }

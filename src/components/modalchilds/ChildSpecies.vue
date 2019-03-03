@@ -3,7 +3,8 @@
         <div class="star-wars-icon">
             <img src="../../assets/R2D2-icon.png">
         </div>
-        <table class="table table-bordered table-dark table-hover">
+        <Loading v-if="loadingMovieInfoStatus"></Loading>
+        <table class="table table-bordered table-dark table-hover" v-if="!loadingMovieInfoStatus">
             <thead>
                 <tr>
                     <th scope="col">Nome</th>
@@ -27,14 +28,20 @@
 </template>
 
 <script>
+import Loading from '../Loading'
 import axios from 'axios'
 import { mapState } from "vuex";
 
 export default {
     name: "ChildSpecies",
+    components: {
+        Loading
+    },
     data() {
         return {
-            movieSpecies: []
+            movieSpecies: [],
+            loadingMovieInfoStatus: false,
+            counter: 0
         };
     },
     computed: {
@@ -50,6 +57,8 @@ export default {
     methods: {
         loadMovieSpecies(movieSpeciesUrls) {
             if (movieSpeciesUrls != null && movieSpeciesUrls != "") {
+                this.loadingMovieInfoStatus = true
+                this.counter = 0;
                 this.movieSpecies = []
                 movieSpeciesUrls.forEach(movieSpeciesUrl => {
                     axios
@@ -64,11 +73,16 @@ export default {
                             };
 
                             this.movieSpecies.push(movieSpecie);
+                            this.counter++;
                         })
                         .catch(error => {
                             console.log(error);
                         })
-                        .finally(() => {});
+                        .finally(() => {
+                            if(this.counter == movieSpeciesUrls.length) {
+                                this.loadingMovieInfoStatus = false;
+                            }
+                        });
                     });
                 }
         }

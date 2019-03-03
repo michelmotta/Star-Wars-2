@@ -3,7 +3,8 @@
         <div class="star-wars-icon">
             <img src="../../assets/Death-Star-icon.png">
         </div>
-        <table class="table table-bordered table-dark table-hover">
+        <Loading v-if="loadingMovieInfoStatus"></Loading>
+        <table class="table table-bordered table-dark table-hover" v-if="!loadingMovieInfoStatus">
             <thead>
                 <tr>
                     <th scope="col">Nome</th>
@@ -27,14 +28,20 @@
 </template>
 
 <script>
+import Loading from '../Loading'
 import axios from 'axios'
 import { mapState } from "vuex";
 
 export default {
     name: "ChildVehicles",
+    components: {
+        Loading
+    },
     data() {
         return {
-            movieVehicles: []
+            movieVehicles: [],
+            loadingMovieInfoStatus: false,
+            counter: 0
         };
     },
     computed: {
@@ -50,6 +57,8 @@ export default {
     methods: {
         loadMovieVehicles(movieVehiclesUrls) {
             if (movieVehiclesUrls != null && movieVehiclesUrls != "") {
+                this.loadingMovieInfoStatus = true
+                this.counter = 0;
                 this.movieVehicles = []
                 movieVehiclesUrls.forEach(movieVehiclesUrl => {
                     axios
@@ -63,12 +72,17 @@ export default {
                                 vehicle_class: response.data.vehicle_class
                             };
 
-                        this.movieVehicles.push(movieVehicle);
+                            this.movieVehicles.push(movieVehicle);
+                            this.counter++;
                         })
                         .catch(error => {
                             console.log(error);
                         })
-                        .finally(() => {});
+                        .finally(() => {
+                            if(this.counter == movieVehiclesUrls.length) {
+                                this.loadingMovieInfoStatus = false;
+                            }
+                        });
                     });
                 }
         }

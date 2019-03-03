@@ -3,7 +3,8 @@
         <div class="star-wars-icon">
             <img src="../../assets/Darth-Vader-icon.png">
         </div>
-        <table class="table table-bordered table-dark table-hover">
+        <Loading v-if="loadingMovieInfoStatus"></Loading>
+        <table class="table table-bordered table-dark table-hover" v-if="!loadingMovieInfoStatus">
             <thead>
                 <tr>
                     <th scope="col">Nome</th>
@@ -27,14 +28,20 @@
 </template>
 
 <script>
+import Loading from '../Loading'
 import axios from 'axios'
 import { mapState } from "vuex";
 
 export default {
     name: "ChildPlanets",
+    components: {
+        Loading
+    },
     data() {
         return {
-            moviePlanets: []
+            moviePlanets: [],
+            loadingMovieInfoStatus: false,
+            counter: 0
         };
     },
     computed: {
@@ -59,6 +66,8 @@ export default {
     methods: {
         loadMoviePlanets(moviePlanetsUrls) {
             if (moviePlanetsUrls != null && moviePlanetsUrls != "") {
+                this.loadingMovieInfoStatus = true
+                this.counter = 0;
                 this.moviePlanets = []
                 moviePlanetsUrls.forEach(moviePlanetsUrl => {
                     axios
@@ -73,11 +82,16 @@ export default {
                             };
 
                             this.moviePlanets.push(moviePlanet);
+                            this.counter++;
                         })
                         .catch(error => {
                             console.log(error);
                         })
-                        .finally(() => {});
+                        .finally(() => {
+                            if(this.counter == moviePlanetsUrls.length) {
+                                this.loadingMovieInfoStatus = false;
+                            }
+                        });
                     });
                 }
         }
