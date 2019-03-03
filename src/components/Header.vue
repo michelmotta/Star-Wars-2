@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="header-title">
-                    <h1>{{headerTitle}}</h1>
+                    <h1 class="glow">{{headerTitle}}</h1>
                 </div>
             </div>
         </div>
@@ -48,5 +48,19 @@ export default {
     margin-bottom: 20px;
     font-size: 40px;
     text-align: center;
+}
+.glow {
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000, 0 0 60px #ff0000, 0 0 70px #ff0000;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #fc2c2c, 0 0 40px #fc2c2c, 0 0 50px #fc2c2c, 0 0 60px #fc2c2c, 0 0 70px #fc2c2c, 0 0 80px #fc2c2c;
+  }
 }
 </style>
