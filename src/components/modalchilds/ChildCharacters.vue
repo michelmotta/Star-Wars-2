@@ -4,30 +4,32 @@
             <img src="../../assets/Master-Joda-icon.png">
         </div>
         <Loading v-if="loadingMovieInfoStatus"></Loading>
-        <table class="table table-bordered table-dark table-hover" v-if="!loadingMovieInfoStatus">
-            <thead>
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Height</th>
-                    <th scope="col">Peso</th>
-                    <th scope="col">Hair</th>
-                    <th scope="col">Skin</th>
-                    <th scope="col">Eyes</th>
-                    <th scope="col">Gender</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="(movieCharacter, index) in movieCharacters" :key="index">
-                    <th>{{movieCharacter.name}}</th>
-                    <td>{{movieCharacter.height}}</td>
-                    <td>{{movieCharacter.mass}}</td>
-                    <td>{{movieCharacter.hair_color}}</td>
-                    <th>{{movieCharacter.skin_color}}</th>
-                    <td>{{movieCharacter.eye_color}}</td>
-                    <td>{{movieCharacter.gender}}</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-bordered table-dark table-hover" v-if="!loadingMovieInfoStatus">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Height</th>
+                        <th scope="col">Mass</th>
+                        <th scope="col">Hair</th>
+                        <th scope="col">Skin</th>
+                        <th scope="col">Eyes</th>
+                        <th scope="col">Gender</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(movieCharacter, index) in movieCharacters" :key="index">
+                        <th>{{movieCharacter.name}}</th>
+                        <td>{{movieCharacter.height}}</td>
+                        <td>{{movieCharacter.mass}}</td>
+                        <td>{{movieCharacter.hair_color}}</td>
+                        <th>{{movieCharacter.skin_color}}</th>
+                        <td>{{movieCharacter.eye_color}}</td>
+                        <td>{{movieCharacter.gender}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </template>
 

@@ -4,26 +4,28 @@
             <img src="../../assets/Darth-Vader-icon.png">
         </div>
         <Loading v-if="loadingMovieInfoStatus"></Loading>
-        <table class="table table-bordered table-dark table-hover" v-if="!loadingMovieInfoStatus">
-            <thead>
-                <tr>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Clima</th>
-                    <th scope="col">Gravidade</th>
-                    <th scope="col">Água</th>
-                    <th scope="col">População</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="(moviePlanet, index) in moviePlanets" :key="index">
-                    <th>{{moviePlanet.name}}</th>
-                    <td>{{moviePlanet.climate}}</td>
-                    <td>{{moviePlanet.gravity}}</td>
-                    <td>{{moviePlanet.surface_water | formateWaterInfo()}}</td>
-                    <th>{{moviePlanet.population}}</th>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-bordered table-dark table-hover" v-if="!loadingMovieInfoStatus">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Climate</th>
+                        <th scope="col">Gravity</th>
+                        <th scope="col">Surface Water</th>
+                        <th scope="col">Population</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(moviePlanet, index) in moviePlanets" :key="index">
+                        <th>{{moviePlanet.name}}</th>
+                        <td>{{moviePlanet.climate}}</td>
+                        <td>{{moviePlanet.gravity}}</td>
+                        <td>{{moviePlanet.surface_water | formateWaterInfo()}}</td>
+                        <th>{{moviePlanet.population}}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </template>
 

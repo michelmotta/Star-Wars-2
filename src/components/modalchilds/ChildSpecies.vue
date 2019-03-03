@@ -4,26 +4,28 @@
             <img src="../../assets/R2D2-icon.png">
         </div>
         <Loading v-if="loadingMovieInfoStatus"></Loading>
-        <table class="table table-bordered table-dark table-hover" v-if="!loadingMovieInfoStatus">
-            <thead>
-                <tr>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Classificação</th>
-                    <th scope="col">Designação</th>
-                    <th scope="col">Tempo de vida</th>
-                    <th scope="col">Idioma</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="(movieSpecie, index) in movieSpecies" :key="index">
-                    <th>{{movieSpecie.name}}</th>
-                    <td>{{movieSpecie.classification}}</td>
-                    <td>{{movieSpecie.designation}}</td>
-                    <td>{{movieSpecie.average_lifespan}}</td>
-                    <th>{{movieSpecie.language}}</th>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-bordered table-dark table-hover" v-if="!loadingMovieInfoStatus">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Classification</th>
+                        <th scope="col">Designation</th>
+                        <th scope="col">Average Lifespan</th>
+                        <th scope="col">Language</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(movieSpecie, index) in movieSpecies" :key="index">
+                        <th>{{movieSpecie.name}}</th>
+                        <td>{{movieSpecie.classification}}</td>
+                        <td>{{movieSpecie.designation}}</td>
+                        <td>{{movieSpecie.average_lifespan}}</td>
+                        <th>{{movieSpecie.language}}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </template>
 

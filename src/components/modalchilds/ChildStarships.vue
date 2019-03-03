@@ -4,26 +4,28 @@
             <img src="../../assets/Clone-Trooper-icon.png">
         </div>
         <Loading v-if="loadingMovieInfoStatus"></Loading>
-        <table class="table table-bordered table-dark table-hover" v-if="!loadingMovieInfoStatus">
-            <thead>
-                <tr>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Modelo</th>
-                    <th scope="col">Fabricante</th>
-                    <th scope="col">Tripulação</th>
-                    <th scope="col">Classe</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="(movieStarship, index) in movieStarships" :key="index">
-                    <th>{{movieStarship.name}}</th>
-                    <td>{{movieStarship.model}}</td>
-                    <td>{{movieStarship.manufacturer}}</td>
-                    <td>{{movieStarship.crew}}</td>
-                    <th>{{movieStarship.starship_class}}</th>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-bordered table-dark table-hover" v-if="!loadingMovieInfoStatus">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Model</th>
+                        <th scope="col">Manufacturer</th>
+                        <th scope="col">Crew</th>
+                        <th scope="col">Starship Class</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(movieStarship, index) in movieStarships" :key="index">
+                        <th>{{movieStarship.name}}</th>
+                        <td>{{movieStarship.model}}</td>
+                        <td>{{movieStarship.manufacturer}}</td>
+                        <td>{{movieStarship.crew}}</td>
+                        <th>{{movieStarship.starship_class}}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </template>
 
