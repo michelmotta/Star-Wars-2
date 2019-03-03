@@ -42,12 +42,13 @@ export default new vuex.Store({
                     let movie = response.data
                     commit('SET_LOADING_MOVIE', false)
                     commit('SET_MOVIE', movie)
+                    commit('SET_CURRENT_MOVIE_TAB', "characters")
                 })
                 .catch(error => {
                     console.log(error)
                 })
         },
-        updateCurentMovieTab({commit}, currentMovieTab) {
+        updateCurrentMovieTab({commit}, currentMovieTab) {
             commit('SET_CURRENT_MOVIE_TAB', currentMovieTab)
         }
     },
