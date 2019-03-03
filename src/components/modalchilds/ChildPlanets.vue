@@ -58,7 +58,7 @@ export default {
     },
     methods: {
         loadMoviePlanets(moviePlanetsUrls) {
-            if (moviePlanetsUrls != null &&moviePlanetsUrls != "") {
+            if (moviePlanetsUrls != null && moviePlanetsUrls != "") {
                 moviePlanetsUrls.forEach(moviePlanetsUrl => {
                     axios
                         .get(moviePlanetsUrl)
