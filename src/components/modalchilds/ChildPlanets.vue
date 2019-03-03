@@ -103,8 +103,10 @@ export default {
 
 <style>
 .star-wars-icon img {
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 </style>
