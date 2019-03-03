@@ -12,21 +12,21 @@
                     <Loading v-if="movieLoadingStatus"></Loading>
                     <div class="row" v-if="!movieLoadingStatus">
                         <div class="col-md-12">
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
                                 <li class="nav-item">
-                                    <a @click.prevent="setCurrentMovieTab('characters')" class="nav-link active" id="characters-tab" data-toggle="tab" href="#characters" role="tab" aria-controls="characters" aria-selected="true">Personagens</a>
+                                    <a @click.prevent="setCurrentMovieTab('characters')" class="nav-link active" id="characters-tab" data-toggle="tab" href="#characters" role="tab" aria-controls="characters" aria-selected="true">Characters</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a @click.prevent="setCurrentMovieTab('planets')" class="nav-link" id="planets-tab" data-toggle="tab" href="#planets" role="tab" aria-controls="planets" aria-selected="false">Planetas</a>
+                                    <a @click.prevent="setCurrentMovieTab('planets')" class="nav-link" id="planets-tab" data-toggle="tab" href="#planets" role="tab" aria-controls="planets" aria-selected="false">Planets</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a @click.prevent="setCurrentMovieTab('species')" class="nav-link" id="species-tab" data-toggle="tab" href="#species" role="tab" aria-controls="species" aria-selected="false">Espécies</a>
+                                    <a @click.prevent="setCurrentMovieTab('species')" class="nav-link" id="species-tab" data-toggle="tab" href="#species" role="tab" aria-controls="species" aria-selected="false">Species</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a @click.prevent="setCurrentMovieTab('starships')" class="nav-link" id="starships-tab" data-toggle="tab" href="#starships" role="tab" aria-controls="starships" aria-selected="false">Naves</a>
+                                    <a @click.prevent="setCurrentMovieTab('starships')" class="nav-link" id="starships-tab" data-toggle="tab" href="#starships" role="tab" aria-controls="starships" aria-selected="false">Starships</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a @click.prevent="setCurrentMovieTab('vehicles')" class="nav-link" id="vehicles-tab" data-toggle="tab" href="#vehicles" role="tab" aria-controls="vehicles" aria-selected="false">Veículos</a>
+                                    <a @click.prevent="setCurrentMovieTab('vehicles')" class="nav-link" id="vehicles-tab" data-toggle="tab" href="#vehicles" role="tab" aria-controls="vehicles" aria-selected="false">Vehicles</a>
                                 </li>
                             </ul>
                             <div class="tab-content" id="myTabContent">
