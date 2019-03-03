@@ -19,18 +19,21 @@
                                     <a @click.prevent="setCurrentMovieTab('planets')" class="nav-link" id="planets-tab" data-toggle="tab" href="#planets" role="tab" aria-controls="planets" aria-selected="false">Planetas</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="species-tab" data-toggle="tab" href="#species" role="tab" aria-controls="species" aria-selected="false">Espécies</a>
+                                    <a @click.prevent="setCurrentMovieTab('species')" class="nav-link" id="species-tab" data-toggle="tab" href="#species" role="tab" aria-controls="species" aria-selected="false">Espécies</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a  class="nav-link" id="starships-tab" data-toggle="tab" href="#starships" role="tab" aria-controls="starships" aria-selected="false">Naves</a>
+                                    <a @click.prevent="setCurrentMovieTab('starships')" class="nav-link" id="starships-tab" data-toggle="tab" href="#starships" role="tab" aria-controls="starships" aria-selected="false">Naves</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="vehicles-tab" data-toggle="tab" href="#vehicles" role="tab" aria-controls="vehicles" aria-selected="false">Veículos</a>
+                                    <a @click.prevent="setCurrentMovieTab('vehicles')" class="nav-link" id="vehicles-tab" data-toggle="tab" href="#vehicles" role="tab" aria-controls="vehicles" aria-selected="false">Veículos</a>
                                 </li>
                             </ul>
                             <div class="tab-content" id="myTabContent">
                                 <ChildCharacters></ChildCharacters>
                                 <ChildPlanets></ChildPlanets>
+                                <ChildSpecies></ChildSpecies>
+                                <ChildStarships></ChildStarships>
+                                <ChildVehicles></ChildVehicles>
                             </div>
                         </div>
                     </div>
@@ -44,12 +47,18 @@
 import { mapState } from "vuex";
 import ChildCharacters from './modalchilds/ChildCharacters'
 import ChildPlanets from './modalchilds/ChildPlanets'
+import ChildSpecies from './modalchilds/ChildSpecies'
+import ChildStarships from './modalchilds/ChildStarships'
+import ChildVehicles from './modalchilds/ChildVehicles'
 
 export default {
     name: 'Modal',
     components: {
         ChildCharacters,
-        ChildPlanets
+        ChildPlanets,
+        ChildSpecies,
+        ChildStarships,
+        ChildVehicles
     },
     computed: {
     	...mapState(["movie"])
