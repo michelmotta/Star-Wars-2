@@ -65,7 +65,7 @@ export default {
     },
     mounted: function() {
         $('.modal').on("hidden.bs.modal", function () {
-            $('.modal a:first').tab('show');
+            $('.modal a:first').tab('show')
         });
     },
     computed: {
@@ -73,7 +73,7 @@ export default {
 	},
     methods: {
        setCurrentMovieTab(currentMovieTab) {
-           this.$store.dispatch("updateCurentMovieTab", currentMovieTab)
+           this.$store.dispatch("updateCurrentMovieTab", currentMovieTab)
        }
     }
 }
