@@ -3,13 +3,14 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">{{movie.title}}</h5>
+                    <h5 class="modal-title" v-if="!movieLoadingStatus">{{movie.title}}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
+                    <Loading v-if="movieLoadingStatus"></Loading>
+                    <div class="row" v-if="!movieLoadingStatus">
                         <div class="col-md-12">
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
@@ -44,7 +45,8 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState } from "vuex"
+import Loading from './Loading'
 import ChildCharacters from './modalchilds/ChildCharacters'
 import ChildPlanets from './modalchilds/ChildPlanets'
 import ChildSpecies from './modalchilds/ChildSpecies'
@@ -54,6 +56,7 @@ import ChildVehicles from './modalchilds/ChildVehicles'
 export default {
     name: 'Modal',
     components: {
+        Loading,
         ChildCharacters,
         ChildPlanets,
         ChildSpecies,
@@ -66,7 +69,7 @@ export default {
         });
     },
     computed: {
-    	...mapState(["movie"])
+    	...mapState(["movie", "movieLoadingStatus"])
 	},
     methods: {
        setCurrentMovieTab(currentMovieTab) {

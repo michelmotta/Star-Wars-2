@@ -12,7 +12,8 @@ export default new vuex.Store({
         currentMovieTab: null,
         prevPageUrl: null,
         nextPageUrl: null,
-        loadingStatus: false
+        loadingStatus: false,
+        movieLoadingStatus: false
     },
     actions: {
         loadMovies({commit}, requestApiUrl) {
@@ -34,10 +35,12 @@ export default new vuex.Store({
             commit('SET_MOVIES_ORDER_BY', orderType)
         },
         loadMovie({commit}, movieUrl) {
+            commit('SET_LOADING_MOVIE', true)
             axios
                 .get(movieUrl)
                 .then(response => {
                     let movie = response.data
+                    commit('SET_LOADING_MOVIE', false)
                     commit('SET_MOVIE', movie)
                 })
                 .catch(error => {
@@ -70,6 +73,9 @@ export default new vuex.Store({
         },
         SET_CURRENT_MOVIE_TAB(state, currentMovieTab) {
             state.currentMovieTab = currentMovieTab
+        },
+        SET_LOADING_MOVIE(state, movieLoadingStatus) {
+            state.movieLoadingStatus = movieLoadingStatus
         }
     }
 })
