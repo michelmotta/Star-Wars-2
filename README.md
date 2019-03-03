@@ -16,6 +16,7 @@ Como um geek gostaria de ver informações privilegiadas do filme, como lista de
 
 ## Frameworks e tecnologias utilizados no projeto
 - [Vue.js](https://vuejs.org)
+- [Vuex](https://vuex.vuejs.org/)
 - [Axios](https://github.com/axios/axios)
 - [Bootstrap](https://getbootstrap.com)
 - [Jquery](https://jquery.com)
