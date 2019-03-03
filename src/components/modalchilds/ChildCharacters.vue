@@ -48,6 +48,11 @@ export default {
             counter: 0
         };
     },
+    mounted() {
+        if(this.currentMovieTab == "characters") {
+            this.loadMovieCharacters(this.movie.characters);
+        }
+    },
     computed: {
         ...mapState(["movie", "currentMovieTab"])
     },
