@@ -54,6 +54,7 @@ export default {
     methods: {
         loadMovieCharacters(movieCharactersUrls) {
             if (movieCharactersUrls != null && movieCharactersUrls != "") {
+                this.movieCharacters = []
                 movieCharactersUrls.forEach(movieCharactersUrl => {
                     axios
                         .get(movieCharactersUrl)

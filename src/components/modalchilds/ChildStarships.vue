@@ -50,6 +50,7 @@ export default {
     methods: {
         loadMovieStarships(movieStarshipsUrls) {
             if (movieStarshipsUrls != null && movieStarshipsUrls != "") {
+                this.movieStarships = []
                 movieStarshipsUrls.forEach(movieStarshipsUrl => {
                     axios
                         .get(movieStarshipsUrl)

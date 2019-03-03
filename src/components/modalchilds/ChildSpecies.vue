@@ -50,6 +50,7 @@ export default {
     methods: {
         loadMovieSpecies(movieSpeciesUrls) {
             if (movieSpeciesUrls != null && movieSpeciesUrls != "") {
+                this.movieSpecies = []
                 movieSpeciesUrls.forEach(movieSpeciesUrl => {
                     axios
                         .get(movieSpeciesUrl)
