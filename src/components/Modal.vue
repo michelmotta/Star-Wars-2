@@ -16,7 +16,7 @@
                                     <a @click.prevent="setCurrentMovieTab('characters')" class="nav-link active" id="characters-tab" data-toggle="tab" href="#characters" role="tab" aria-controls="characters" aria-selected="true">Personagens</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="planets-tab" data-toggle="tab" href="#planets" role="tab" aria-controls="planets" aria-selected="false">Planetas</a>
+                                    <a @click.prevent="setCurrentMovieTab('planets')" class="nav-link" id="planets-tab" data-toggle="tab" href="#planets" role="tab" aria-controls="planets" aria-selected="false">Planetas</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" id="species-tab" data-toggle="tab" href="#species" role="tab" aria-controls="species" aria-selected="false">Espécies</a>
@@ -30,6 +30,7 @@
                             </ul>
                             <div class="tab-content" id="myTabContent">
                                 <ChildCharacters></ChildCharacters>
+                                <ChildPlanets></ChildPlanets>
                             </div>
                         </div>
                     </div>
@@ -42,11 +43,13 @@
 <script>
 import { mapState } from "vuex";
 import ChildCharacters from './modalchilds/ChildCharacters'
+import ChildPlanets from './modalchilds/ChildPlanets'
 
 export default {
     name: 'Modal',
     components: {
         ChildCharacters,
+        ChildPlanets
     },
     computed: {
     	...mapState(["movie"])
