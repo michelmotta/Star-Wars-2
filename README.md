@@ -26,4 +26,18 @@ Como um geek gostaria de ver informações privilegiadas do filme, como lista de
 <img src="https://github.com/michelmotta/Star-Wars-2/blob/master/prototipo/Home.png" width="600" height="500">
 <img src="https://github.com/michelmotta/Star-Wars-2/blob/master/prototipo/Mais%20Detalhes%20(Modal).png" width="600" height="500">
 
+## Como faço para rodar o projeto?
+
+- Você deve ser capaz de executar comandos npm em sua máquina. Para mais informações [clique aqui](https://www.npmjs.com/get-npm)
+
+- Faça o download ou clone o repositório em sua máquina local
+
+- Acesse a pasta principal do projeto com o terminal e execute os sequintes comandos:
+
+`npm build` - Para baixar todas as dependências do projeto
+
+`npm run serve` - Para iniciar o servidor local. Geralmente é acessível em http://localhost:8080
+
 ## Como consigo ver o projeto rodando?
+
+Acesse esse [link aqui](https://michelmotta.github.io/Star-Wars-2/) do GitPages do projeto.
