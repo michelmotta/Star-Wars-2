@@ -34,7 +34,7 @@ Como um geek gostaria de ver informações privilegiadas do filme, como lista de
 
 - Acesse a pasta principal do projeto com o terminal e execute os sequintes comandos:
 
-`npm build` - Para baixar todas as dependências do projeto
+`npm install` - Para baixar todas as dependências do projeto
 
 `npm run serve` - Para iniciar o servidor local. Geralmente é acessível em http://localhost:8080
 
