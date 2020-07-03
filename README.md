@@ -2,7 +2,7 @@
 
 ## Sobre o projeto
 
-O objetivo era Desenvolver um app (Mobile ou Web) que consuma a API do StarWars (https://swapi.co/documentation). A aplicação deverá mostrar todos os filmes já lançados da franquia, com a possibilidade de mostrar os detalhes da mesma.
+O objetivo era Desenvolver um app (Mobile ou Web) que consuma a API do StarWars (https://swapi.py4e.com/documentation). A aplicação deverá mostrar todos os filmes já lançados da franquia, com a possibilidade de mostrar os detalhes da mesma.
 
 ## Requisitos do projeto
 
