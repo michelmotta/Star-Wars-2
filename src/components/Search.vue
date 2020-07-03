@@ -32,7 +32,7 @@ export default {
     },
     methods: {
         searchMovieByName() {
-            this.$store.dispatch("loadMovies", 'https://swapi.dev/api/films/?search=' + this.searchTerm)
+            this.$store.dispatch("loadMovies", 'https://swapi.py4e.com/api/films/?search=' + this.searchTerm)
         }
     }
 }
