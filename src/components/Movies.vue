@@ -45,7 +45,7 @@ export default {
         Modal
     },
   	mounted() {
-    	this.$store.dispatch("loadMovies", 'https://swapi.co/api/films')
+    	this.$store.dispatch("loadMovies", 'https://swapi.dev/api/films')
   	},
   	computed: {
     	...mapState(["movies"])
