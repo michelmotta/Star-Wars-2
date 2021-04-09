@@ -26,7 +26,7 @@
                         <p class="list-item-text-synopsis">{{movie.opening_crawl}}</p>
                     </div>
                     <div class="list-item-button">
-                        <button type="button" class="btn btn-dark btn-black" data-toggle="modal" data-target=".bd-example-modal-lg" @click.prevent="loadMovieByUrl(movie.url)">Details</button>
+                        <button type="button" class="btn btn-dark btn-black" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg" @click.prevent="loadMovieByUrl(movie.url)">Details</button>
                     </div>
                 </div>
             </div>

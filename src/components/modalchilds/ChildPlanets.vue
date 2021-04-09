@@ -5,7 +5,7 @@
         </div>
         <Loading v-if="loadingMovieInfoStatus"></Loading>
         <div class="table-responsive">
-            <table class="table table-bordered table-dark table-hover" v-if="!loadingMovieInfoStatus">
+            <table class="table table-bordered table-hover" v-if="!loadingMovieInfoStatus">
                 <thead>
                     <tr>
                         <th scope="col">Name</th>

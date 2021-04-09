@@ -4,29 +4,27 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" v-if="!movieLoadingStatus">{{movie.title}}</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <Loading v-if="movieLoadingStatus"></Loading>
                     <div class="row" v-if="!movieLoadingStatus">
                         <div class="col-md-12">
-                            <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
-                                    <a @click.prevent="setCurrentMovieTab('characters')" class="nav-link active" id="characters-tab" data-toggle="tab" href="#characters" role="tab" aria-controls="characters" aria-selected="true">Characters</a>
+                                    <a @click.prevent="setCurrentMovieTab('characters')" class="nav-link active" id="characters-tab" data-bs-toggle="tab" data-bs-target="#characters" role="tab" aria-controls="characters" aria-selected="true">Characters</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a @click.prevent="setCurrentMovieTab('planets')" class="nav-link" id="planets-tab" data-toggle="tab" href="#planets" role="tab" aria-controls="planets" aria-selected="false">Planets</a>
+                                    <a @click.prevent="setCurrentMovieTab('planets')" class="nav-link" id="planets-tab" data-bs-toggle="tab" data-bs-target="#planets" role="tab" aria-controls="planets" aria-selected="false">Planets</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a @click.prevent="setCurrentMovieTab('species')" class="nav-link" id="species-tab" data-toggle="tab" href="#species" role="tab" aria-controls="species" aria-selected="false">Species</a>
+                                    <a @click.prevent="setCurrentMovieTab('species')" class="nav-link" id="species-tab" data-bs-toggle="tab" data-bs-target="#species" role="tab" aria-controls="species" aria-selected="false">Species</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a @click.prevent="setCurrentMovieTab('starships')" class="nav-link" id="starships-tab" data-toggle="tab" href="#starships" role="tab" aria-controls="starships" aria-selected="false">Starships</a>
+                                    <a @click.prevent="setCurrentMovieTab('starships')" class="nav-link" id="starships-tab" data-bs-toggle="tab" data-bs-target="#starships" role="tab" aria-controls="starships" aria-selected="false">Starships</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a @click.prevent="setCurrentMovieTab('vehicles')" class="nav-link" id="vehicles-tab" data-toggle="tab" href="#vehicles" role="tab" aria-controls="vehicles" aria-selected="false">Vehicles</a>
+                                    <a @click.prevent="setCurrentMovieTab('vehicles')" class="nav-link" id="vehicles-tab" data-bs-toggle="tab" data-bs-target="#vehicles" role="tab" aria-controls="vehicles" aria-selected="false">Vehicles</a>
                                 </li>
                             </ul>
                             <div class="tab-content" id="myTabContent">
@@ -64,9 +62,7 @@ export default {
         ChildVehicles
     },
     mounted: function() {
-        $('.modal').on("hidden.bs.modal", function () {
-            $('.modal a:first').tab('show')
-        });
+        
     },
     computed: {
     	...mapState(["movie", "movieLoadingStatus"])
