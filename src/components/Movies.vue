@@ -1,31 +1,18 @@
 <template>
     <div class="container">
         <div class="row" v-for="i in Math.ceil(movies.length / 3)" :key="i">
-            <div class="col-md-4 margin-top-30px" v-for="(movie, index) in movies.slice((i - 1) * 3, i * 3)" :key="index">
-                <div class="list-item">
-                    <div class="list-item-movie-image">
-                        <img src="../../public/img/demo_star_wars.jpeg" class="img-fluid">
+            <div class="col-4 margin-top-30px" v-for="(movie, index) in movies.slice((i - 1) * 3, i * 3)" :key="index">
+                <div class="card">
+                    <img src="../../public/img/demo_star_wars.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{movie.title}}</h5>
+                        <p class="card-text">{{movie.opening_crawl}}</p>
                     </div>
-                    <div class="list-item-text">
-                        <span class="badge badge-secondary">Movie</span>
-                        <p>{{movie.title}}</p>
-                    </div>
-                    <hr>
-                    <div class="list-item-text">
-                        <span class="badge badge-secondary">Release Date</span>
-                        <p>{{movie.release_date | formateDate()}}</p>
-                    </div>
-                    <hr>
-                    <div class="list-item-text">
-                        <span class="badge badge-secondary">Director</span>
-                        <p>{{movie.director}}</p>
-                    </div>
-                    <hr>
-                    <div class="list-item-text">
-                        <span class="badge badge-secondary">Opening Crawl</span>
-                        <p class="list-item-text-synopsis">{{movie.opening_crawl}}</p>
-                    </div>
-                    <div class="list-item-button">
+                    <ul class="list-group list-group-flush text-center">
+                        <li class="list-group-item"><span class="fs-6">Release Date</span> <br> <span class="fs-5">{{movie.release_date | formateDate()}}</span></li>
+                        <li class="list-group-item"><span class="fs-6">Director</span> <br> <span class="fs-5">{{movie.director}}</span></li>
+                    </ul>
+                    <div class="card-body text-center">
                         <button type="button" class="btn btn-dark btn-black" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg" @click.prevent="loadMovieByUrl(movie.url)">Details</button>
                     </div>
                 </div>
@@ -108,5 +95,14 @@ export default {
 .badge-secondary{
     color: #efff01;
     background-color: #000000;
+}
+.card-title{
+    font-size: 22px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.card-text{
+    height: 120px;
+    overflow: auto;
 }
 </style>
