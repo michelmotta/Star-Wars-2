@@ -96,6 +96,9 @@ export default {
     color: #efff01;
     background-color: #000000;
 }
+.card{
+    box-shadow: 0px 0px 10px #fff;
+}
 .card-title{
     font-size: 22px;
     margin-top: 10px;
