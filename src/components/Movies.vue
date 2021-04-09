@@ -102,7 +102,7 @@ export default {
     margin-bottom: 20px;
 }
 .card-text{
-    height: 100px;
+    height: 120px;
     overflow: auto;
 }
 </style>
