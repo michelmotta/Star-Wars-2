@@ -38,6 +38,18 @@ Como um geek gostaria de ver informações privilegiadas do filme, como lista de
 
 `npm run serve` - Para iniciar o servidor local. Geralmente é acessível em http://localhost:8080
 
+## Esse projeto roda em container usando Docker?
+
+Para os amantes de container e Docker, esse projeto pode ser clonado e rodado em um container através do Docker. Para tanto é necessário que o Docker e o Docker Compose esteja instalado em seu computador. Para mais informações [clique aqui](https://docs.docker.com/get-started/)
+
+- Clone o projeto para uma pasta de sua preferência em seu computador
+
+- Acesse a pasta escolhida e execute o comando `docker-compose up`
+
+- O Docker irá baixar a imagem utilizada no projeto e subir os serviços
+
+- Você poderá acessar a aplicação rodando em http://localhost:8080
+
 ## Como consigo ver o projeto rodando?
 
 Acesse esse [link aqui](https://michelmotta.github.io/Star-Wars-2/) do GitPages do projeto.
